@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div th:if="${mass_url}">
+	Your URL has been shortened: <p th:text=${mass_url}></p>
+	<form action="#" th:action="@{/}" method="GET">
+		<input type="submit" value="Shorten another URL" />
+	</form>
+</div>
+<div th:unless="${mass_url}">
+	<form action="#" th:action="@{/api/massurls}" th:object="${massUrl}" method="post">
+		<label for="original_url">Enter URL</label>
+		<input type="text" th:field="*{originalUrl}" id="originalUrl" placeholder="Url">
+		<span th:if="${#fields.hasErrors('originalUrl')}" th:errors="*{originalUrl}"></span>
+		<input type="submit" value="Shorten URL">
+	</form>
+</div>
+</body>
+</html>

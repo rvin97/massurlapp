@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div th:if="${status==404}">
+Sorry, we couldn't find the page you were looking for
+</div>
+<div th:unless="${status==404}">
+Something went wrong!
+<p th:text=${message}></p>
+</div>
+<br>
+<a href="/">Go Home</a>
+</body>
+</html>
